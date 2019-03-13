@@ -87,7 +87,8 @@ var jQuery = $ || {};
 				//拼接dom;
 				html += '<li class="' + isActive + '">/ <a href="' + url + '">' + item.Name + '</a></li> ';
 			});
-			$('.nav').html(html);	
+            $('.nav').html(html);	
+            navButton();
         }
         //企业分类
         var companyClassificationData = function(data){
@@ -197,6 +198,12 @@ var jQuery = $ || {};
 				html +='<li><a href="'+item.Url+'">'+item.Name+'</a></li>'
 			});
             $('.friendLinkList').html(html);
+        }
+        //移动端导航点击
+        var navButton = function () {
+            $(".navButton").click(function () {
+                $(".nav").toggle();
+            })
         }
 		$.when(getData()).done(function(){
             console.log(dataTpl);
