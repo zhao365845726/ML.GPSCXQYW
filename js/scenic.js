@@ -34,7 +34,7 @@ var jQuery = $ || {};
             }
         };
         scenicListParam = {
-            "categoryid": "",
+            "categoryid": "5d5b3833-9894-433b-98c9-5da4e2a01437",
             "PageIndex": 1,
             "PageSize": 12
         };
@@ -113,12 +113,12 @@ var jQuery = $ || {};
                                     <img data-lazy-src="`+ item.CoverPhoto+ `" class="scenicListImg" src="`+item.CoverPhoto+`" data-comp="true" style="visibility: visible;">
                                     <span class="scenicListName">`+ item.Title + `</span>
                                     <span class="scenicListLevel">`+ item.Description + `</span>
-                                    <span class="scenicListAddress">`+ item.Description + `</span>
+                                  
                                 </a>
                             </li>`;
                     });
                     $('.scenicList>ul').html(html);
-
+                // <span class="scenicListAddress">`+ item.Description + `</span>
                 }
             })
         }

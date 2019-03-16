@@ -202,8 +202,9 @@ var jQuery = $ || {};
                     var len = data.data.Lst_companyPatentResults.length;
                     var arrPic = new Array(); //定义一个数组
                     for (var i = 0; i < len; i++) {
+
                         arrPic[i] = data.data.Lst_companyPatentResults[i].ResourceUrl; //将所有img路径存储到数组中
-                        // console.log(arrPic[i])
+                        console.log(arrPic[i])
                     };
                     $("body").append("<div class=\"mask-layer\">" +
                         "   <div class=\"mask-layer-black\"></div>" +
@@ -224,9 +225,9 @@ var jQuery = $ || {};
                         $(".mask-layer-imgbox img").prop("src", arrPic[num+1]); //给弹出框的Img赋值
                         var $div_img = $(".mask-layer-imgbox p");
                         $div_img.bind("mousedown", function (event) {
-                            event.preventDefault && event.preventDefault(); //去掉图片拖动响应
-                            var offset_x = $(this)[0].offsetLeft;//x坐标
-                            var offset_y = $(this)[0].offsetTop;//y坐标
+                            event.preventDefault && event.preventDefault();
+                            var offset_x = $(this)[0].offsetLeft;
+                            var offset_y = $(this)[0].offsetTop;
                             var mouse_x = event.pageX;
                             var mouse_y = event.pageY;
                             $(".mask-layer-imgbox").bind("mousemove", function (ev) {
@@ -256,7 +257,7 @@ var jQuery = $ || {};
                     $(".mask-next").on("click", function () {
                         $(".mask-layer-imgbox p img").remove();
                         num++;
-                        if (num == len) {
+                        if (num === len) {
                             num = 0;
                         }
                         showImg();
@@ -265,7 +266,7 @@ var jQuery = $ || {};
                     $(".mask-prev").on("click", function () {
                         $(".mask-layer-imgbox p img").remove();
                         num--;
-                        if (num == -1) {
+                        if (num === -1) {
                             num = len - 1;
                         }
                         showImg();
