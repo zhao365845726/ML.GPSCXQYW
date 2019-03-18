@@ -194,13 +194,13 @@ var jQuery = $ || {};
 			})
         }
         //友情链接
-        var friendlyLinkData = function(data){
-            var html = '';
-			data && data.length > 0 && $.each(data, function(index, item) {
-				html +='<li><a href="'+item.Url+'">'+item.Name+'</a></li>'
-			});
-			$('.friendLink').html(html);
-        }
+        // var friendlyLinkData = function(data){
+        //     var html = '';
+		// 	data && data.length > 0 && $.each(data, function(index, item) {
+		// 		html +='<li><a href="'+item.Url+'">'+item.Name+'</a></li>'
+		// 	});
+		// 	$('.friendLink').html(html);
+        // }
 
 
 		$.when(getData()).done(function(){
@@ -212,7 +212,7 @@ var jQuery = $ || {};
            noticesData(1,dataTpl.Lst_policies);
            noticesData(2,dataTpl.Lst_notices);
            swiperData(dataTpl.Lst_travel);
-           friendlyLinkData(dataTpl.Lst_friendshiplink.data);
+           // friendlyLinkData(dataTpl.Lst_friendshiplink.data);
 		});
     })
 

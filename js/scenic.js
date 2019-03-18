@@ -34,7 +34,7 @@ var jQuery = $ || {};
             }
         };
         scenicListParam = {
-            "categoryid": "5d5b3833-9894-433b-98c9-5da4e2a01437",
+            "categoryid": "b2af0f6a-78b0-464f-ac13-3336dd5bfa7a",
             "PageIndex": 1,
             "PageSize": 12
         };
@@ -128,7 +128,7 @@ var jQuery = $ || {};
         var page = function (i) {
             $('#pageBar').whjPaging({
                 totalPage: i,
-                showPageNum: 0,
+                showPageNum: 2,
                 isShowFL: false,//首末页面
                 isShowPageSizeOpt: false,
                 isShowSkip: false,
