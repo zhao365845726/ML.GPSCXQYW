@@ -55,7 +55,7 @@ var jQuery = $ || {};
             "PageSize": 6
         };
         companyListParam.Type = Number(window.location.search.split('&')[1].split('=')[1]);
-        if (companyListParam.Type == 1) {
+        if (companyListParam.Type === 1) {
             $(".companyClassifyTag li").removeClass('active');
             $(".companyClassifyTag li:eq(1)").addClass('active');
         }
@@ -69,7 +69,7 @@ var jQuery = $ || {};
 				dataType: 'json',
 				url: contentUrl + url,
 				async : false,
-				crossDomain: true == !(document.all),
+				crossDomain: true === !(document.all),
 				success: function(data, type) {
 					// console.log(data);
 					if (data.data) {
@@ -107,7 +107,7 @@ var jQuery = $ || {};
                     default:
                         break;
                 }
-				isActive = item.Name == '首页' ? 'active' : '';
+				isActive = item.Name === '首页' ? 'active' : '';
 				//拼接dom;
 				html += '<li class="' + isActive + '">/ <a href="' + url + '">' + item.Name + '</a></li> ';
 			});
@@ -129,12 +129,12 @@ var jQuery = $ || {};
                 data: companyListParam,
                 dataType: 'json',
                 url: companyUrl + url,
-                crossDomain: true == !(document.all),
+                crossDomain: true === !(document.all),
                 success: function (data, type) {
                     // console.log(data);
                         var html = '',active = '';
                     data.Lst_vcompanylib && data.Lst_vcompanylib.length > 0 && $.each(data.Lst_vcompanylib, function (index, item) {
-                        if (item.Type == 1) {
+                        if (item.Type === 1) {
                             active = 'company_iconActive';
                         }
                             html += `<li class="companyClassifyList">
@@ -180,11 +180,16 @@ var jQuery = $ || {};
                 $(".companyClassifyTag li").removeClass('active');
                 $(this).addClass('active');
                 var type = $(this).attr('data-type');
+                var value = $("#companyClassifySearchInput").val().trim();
+                companyListParam.Keyword = value;
+                companyListParam.Type = type;
+                companyListParam.PageIndex = 1;
+                currPages = 1;
                 companyListData();
             })
             $("#companyClassifySearchSubmit").click(function () {
                 var value = $("#companyClassifySearchInput").val().trim();
-                if (value && value != undefined) {
+                if (value && value !== undefined) {
                     companyListParam.Keyword = value;
                     companyListParam.PageIndex = 1;
                     currPages = 1;

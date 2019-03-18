@@ -49,7 +49,7 @@ var jQuery = $ || {};
                 dataType: 'json',
                 url: contentUrl + url,
                 async: false,
-                crossDomain: true == !(document.all),
+                crossDomain: true === !(document.all),
                 success: function (data, type) {
                     // console.log(data);
                     if (data.data) {
@@ -87,12 +87,12 @@ var jQuery = $ || {};
                     default:
                         break;
                 }
-                isActive = item.Name == '首页' ? 'active' : '';
+                isActive = item.Name === '首页' ? 'active' : '';
                 //拼接dom;
                 html += '<li class="' + isActive + '">/ <a href="' + url + '">' + item.Name + '</a></li> ';
             });
             $('.nav').html(html);
-        }
+        };
 
         //大美高平
         var scenicListData = function () {
@@ -102,7 +102,7 @@ var jQuery = $ || {};
                 data: scenicListParam,
                 dataType: 'json',
                 url: articleUrl + url,
-                crossDomain: true == !(document.all),
+                crossDomain: true === !(document.all),
                 success: function (data, type) {
                     console.log(data)
                     var url = '', html = '';
@@ -119,10 +119,28 @@ var jQuery = $ || {};
                     });
                     $('.scenicList>ul').html(html);
                 // <span class="scenicListAddress">`+ item.Description + `</span>
+                    /*页码*/
+                    page(Math.ceil(data.data.totalcount / 6));
                 }
             })
         }
-
+        //分页逻辑
+        var page = function (i) {
+            $('#pageBar').whjPaging({
+                totalPage: i,
+                showPageNum: 0,
+                isShowFL: false,//首末页面
+                isShowPageSizeOpt: false,
+                isShowSkip: false,
+                isShowRefresh: false,
+                isShowTotalPage: false,
+                isResetPage: true,
+                callBack: function (currPage, pageSize) {
+                    scenicListParam.PageIndex = currPage;
+                    scenicListData();
+                }
+            });
+        };
 
         //友情链接
         var friendlyLinkData = function (data) {

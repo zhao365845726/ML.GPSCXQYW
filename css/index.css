@@ -561,11 +561,15 @@ html,body{
    width: 276px;
    height: 320px;
    background: #fff;
-   margin-left:32px; 
+   /*margin-left:32px; */
    margin-bottom: 44px;
 }
 .scenicList li.active{
-	margin-left:15px;
+	margin-right:32px;
+}
+.scenicList li.active:nth-child(4),.scenicList li.active:nth-child(8),.scenicList li.active:nth-child(12){
+	margin-right: 0;
+
 }
 .scenicListImg{
 	display: block;
@@ -672,8 +676,18 @@ html,body{
 .pagePrev span,.pageNext span{
 	font-size: 17px;
 	color: #231815;
-}
 
+}
+.pageNext span{
+	float: right;
+}
+.pageNext b{
+	float: right;
+}
+.pagePrev span a,.pageNext a{
+	color: #3376bd;
+	font-size: 16px;
+}
 .companyList{
 	padding-left: 75px;
 }

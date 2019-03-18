@@ -44,7 +44,7 @@ var jQuery = $ || {};
 
 
         }
-        UrlSearch();
+                UrlSearch();
 
 
         var param, dataTpl, getarticledetail;
@@ -91,7 +91,7 @@ var jQuery = $ || {};
                 dataType: 'json',
                 url: contentUrl + url,
                 async : false,
-                crossDomain: true == !(document.all),
+                crossDomain: true === !(document.all),
                 success: function(data, type) {
                     // console.log(data);
                     if (data.data) {
@@ -129,7 +129,7 @@ var jQuery = $ || {};
                     default:
                         break;
                 }
-                isActive = item.Name == '首页' ? 'active' : '';
+                isActive = item.Name === '首页' ? 'active' : '';
                 //拼接dom;
                 html += '<li class="' + isActive + '">/ <a href="' + url + '">' + item.Name + '</a></li> ';
             });
@@ -143,7 +143,7 @@ var jQuery = $ || {};
                 data: getarticledetail,
                 dataType: 'json',
                 url: "http://api.gpscxqyw.com/api/company/getarticledetail",
-                crossDomain: true == !(document.all),
+                crossDomain: true === !(document.all),
                 success: function (data, type) {
                     // console.log(data);
                     var html = '', url='';

@@ -41,7 +41,7 @@ var jQuery = $ || {};
 				dataType: 'json',
 				url: contentUrl + url,
 				async : false,
-				crossDomain: true == !(document.all),
+				crossDomain: true === !(document.all),
                     success: function(data, type) {
 					console.log(data);
 					// console.log(cont)
